@@ -1,0 +1,12 @@
+using NationalInstruments.NI4882;   // This namespace must be included to reference the .NET language interface
+
+    public partial class Form1 : Form
+    {
+        Device device_2636 = new Device(0, 20, 0);
+
+string data;
+
+ device_2636.Write("smub.reset()");
+
+            data = device_2636.ReadString(); //Read the value from the model 2612, which is connected to the drain
+            data = data.Substring(0, 12); //Extract current from the obtained data
